@@ -20,3 +20,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
+Route::middleware('auth:sanctum')->group(function (){
+
+    #Event
+    Route::resource('events', \App\Http\Controllers\EventController::class);
+
+});

@@ -24,5 +24,6 @@ Route::middleware('auth:sanctum')->group(function (){
 
     #Event
     Route::resource('events', \App\Http\Controllers\EventController::class);
+    Route::resource('slots', \App\Http\Controllers\SlotController::class);
 
 });

@@ -13,4 +13,9 @@ class Event extends Model
         'title',
         'description',
     ];
+
+    public function slots()
+    {
+        return $this->hasMany(Slot::class);
+    }
 }

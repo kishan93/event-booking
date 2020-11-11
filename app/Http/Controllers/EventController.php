@@ -19,6 +19,8 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
+        $event->slots = $event->slots()
+            ->get();
         return Inertia::render('Event/Event', compact('event'));
     }
 

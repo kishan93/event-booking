@@ -40,6 +40,9 @@
                             </td>
                             <td class="border px-4 py-2">{{ row.description }}</td>
                             <td class="border px-4 py-2">
+                                <inertia-link :href="'/events/'+row.id" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-1 rounded">
+                                    View
+                                </inertia-link>
                                 <button @click="edit(row)"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                     Edit

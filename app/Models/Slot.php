@@ -25,6 +25,11 @@ class Slot extends Model
         'startTime',
         'endDate',
         'endTime',
+        'isFull',
+    ];
+
+    protected $withCount = [
+        'bookings'
     ];
 
     public function getStartDateAttribute()
@@ -47,8 +52,18 @@ class Slot extends Model
         return $this->end->format('g:i A');
     }
 
+    public function getIsFullAttribute()
+    {
+        return $this->bookings()->count() >= $this->capacity;
+    }
+
     public function event()
     {
         return $this->belongsTo(Event::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
     }
 }

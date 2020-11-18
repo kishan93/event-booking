@@ -13,17 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@index');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
+
 Route::middleware('auth:sanctum')->group(function (){
 
     #Event
     Route::resource('events', \App\Http\Controllers\EventController::class);
     Route::resource('slots', \App\Http\Controllers\SlotController::class);
+
+    #bookings
+    Route::resource('bookings', \App\Http\Controllers\BookingController::class);
 
 });

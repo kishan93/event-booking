@@ -22,10 +22,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware('auth:sanctum')->group(function (){
 
     #Event
-    Route::resource('events', \App\Http\Controllers\EventController::class);
-    Route::resource('slots', \App\Http\Controllers\SlotController::class);
+    Route::resource('events','EventController');
+    Route::resource('slots','SlotController');
 
     #bookings
-    Route::resource('bookings', \App\Http\Controllers\BookingController::class);
+    Route::resource('bookings', 'BookingController');
 
 });
